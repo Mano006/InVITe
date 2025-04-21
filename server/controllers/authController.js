@@ -173,8 +173,7 @@ const verifyOtp = async (req, res) => {
     const inputOtp = req.body.otp;
     const Email = req.body.email;
     const name = req.body.username;
-    const regNumber = req.body.regNumber;
-
+   
     OtpAuth.find({ email: Email }, async function (err, docs) {
         if (docs.length === 0) {
             return res.status(400).send("The OTP expired. Please try again!");
@@ -193,7 +192,6 @@ const verifyOtp = async (req, res) => {
                 //saving new user
                 const newUser = new User({
                     user_token: token,
-                    reg_number: regNumber,
                     username: name,
                     email: Email,
                     contactNumber: number,
