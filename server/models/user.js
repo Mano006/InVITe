@@ -8,11 +8,7 @@ const userSchema = new mongoose.Schema(
             required: true,
             unique: true,
         },
-        reg_number: {
-            type: String,
-            trim: true,
-            required: true,
-        },
+
         username: {
             type: String,
             trim: true,
