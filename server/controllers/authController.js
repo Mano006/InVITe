@@ -173,7 +173,10 @@ const verifyOtp = async (req, res) => {
     const inputOtp = req.body.otp;
     const Email = req.body.email;
     const name = req.body.username;
-    const regNumber = req.body.regNumber;
+    // const regNumber = req.body.regNumber; (delete this line)
+...
+// reg_number: regNumber, (delete this line)
+
 
     OtpAuth.find({ email: Email }, async function (err, docs) {
         if (docs.length === 0) {
@@ -193,7 +196,6 @@ const verifyOtp = async (req, res) => {
                 //saving new user
                 const newUser = new User({
                     user_token: token,
-                    reg_number: regNumber,
                     username: name,
                     email: Email,
                     contactNumber: number,
